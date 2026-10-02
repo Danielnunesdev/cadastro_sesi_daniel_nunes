@@ -1,0 +1,296 @@
+/* Variáveis para facilidade de temas (Ciano no claro e Azul Escuro no escuro) */
+:root {
+    --gradiente-fundo: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
+    --fundo-cartao: #ffffff;
+    --cor-texto: #2d3748;
+    --cor-primaria: #00838f;
+    --cor-primaria-destaque: #006064;
+    --cor-borda: #e0f2f1;
+    --cor-perigo: #ff7675;
+    --cor-concluido: #a0aec0;
+}
+
+/* Modo escuro (Azul Escuro) */
+body.modo-escuro {
+    --gradiente-fundo: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --fundo-cartao: #1e293b;
+    --cor-texto: #f8fafc;
+    --cor-borda: #334155;
+    --cor-primaria: #38bdf8;
+    --cor-primaria-destaque: #0284c7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+    background: var(--gradiente-fundo);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.cartao-aplicacao {
+    background: var(--fundo-cartao);
+    color: var(--cor-texto);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Área do Autor / Foto de Perfil Ajustada */
+.secao-autor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed var(--cor-borda);
+}
+
+.foto-autor {
+    width: 80px;
+    height: 80px;
+    max-width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--cor-primaria);
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.texto-credito {
+    font-size: 0.85rem;
+    color: var(--cor-texto);
+    opacity: 0.9;
+}
+
+.cabecalho-aplicacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.cabecalho-aplicacao h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.botao-icone {
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.botao-icone:hover {
+    opacity: 0.8;
+}
+
+.caixa-entrada {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    outline: none;
+    font-size: 0.95rem;
+    background: transparent;
+    color: var(--cor-texto);
+}
+
+input[type="text"]:focus {
+    border-color: var(--cor-primaria);
+}
+
+.botao-principal {
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.botao-principal:hover {
+    background: var(--cor-primaria-destaque);
+    transform: translateY(-2px);
+}
+
+.lista-tarefas {
+    list-style: none;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: var(--cor-borda);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: aparecer 0.3s ease;
+}
+
+.item-tarefa.concluida span {
+    text-decoration: line-through;
+    color: var(--cor-concluido);
+}
+
+.acoes-tarefa {
+    display: flex;
+    gap: 10px;
+}
+
+.botao-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--cor-texto);
+}
+
+.botao-acao.concluir:hover {
+    color: var(--cor-primaria);
+}
+
+.botao-acao.excluir:hover {
+    color: var(--cor-perigo);
+}
+
+.rodape-aplicacao {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--cor-concluido);
+    text-align: center;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ESTILOS DO BOTÃO FLUTUANTE E JANELA DE REQUISITOS --- */
+.botao-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.botao-flutuante:hover {
+    background: var(--cor-primaria-destaque);
+    transform: scale(1.1);
+}
+
+.janela-requisitos {
+    position: fixed;
+    bottom: 95px;
+    right: 20px;
+    width: 320px;
+    background: var(--fundo-cartao);
+    color: var(--cor-texto);
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.janela-requisitos.oculta {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+}
+
+.cabecalho-janela {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cor-borda);
+    padding: 12px 15px;
+}
+
+.cabecalho-janela h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.btn-fechar {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.conteudo-janela {
+    padding: 15px;
+    font-size: 0.85rem;
+}
+
+.conteudo-janela h4 {
+    margin-bottom: 12px;
+    color: var(--cor-primaria);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.conteudo-janela ul {
+    list-style: none;
+}
+
+.conteudo-janela li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    padding-left: 8px;
+    border-left: 3px solid var(--cor-primaria);
+}

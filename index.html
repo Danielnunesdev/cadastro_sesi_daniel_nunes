@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Painel de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+    
+    <div class="cartao-aplicacao">
+        <!-- Área do Autor / Foto de Perfil -->
+        <div class="secao-autor">
+            <img src="WhatsApp Image 2026-10-02 at 09.43.07.jpeg" alt="Foto de Daniel Nunes Ferreira" class="foto-autor">
+            <p class="texto-credito">Este site foi feito por <strong>Daniel Nunes Ferreira</strong></p>
+        </div>
+
+        <header class="cabecalho-aplicacao">
+            <h1>Minhas Tarefas</h1>
+            <button id="alternar-tema" class="botao-icone" title="Alternar tema">
+                <i id="icone-tema" class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+        <div class="caixa-entrada">
+            <input type="text" id="campo-tarefa" placeholder="O que vamos fazer hoje?..." maxlength="40">
+            <button id="botao-adicionar" class="botao-principal">
+                <i class="fa-solid fa-plus"></i> Adicionar
+            </button>
+        </div>
+
+        <ul id="lista-tarefas" class="lista-tarefas">
+            <!-- As tarefas serão inseridas aqui dinamicamente via JS -->
+        </ul>
+
+        <footer class="rodape-aplicacao">
+            <span id="contador-tarefas">0 tarefas na lista</span>
+        </footer>
+    </div>
+
+    <!-- Botão Flutuante (Abre os Requisitos) -->
+    <button id="btn-flutuante" class="botao-flutuante" title="Ver Requisitos">
+        <i class="fa-solid fa-circle-info"></i>
+    </button>
+
+    <!-- Janela Informativa que Mostra os Requisitos Funcionais -->
+    <div id="janela-requisitos" class="janela-requisitos oculta">
+        <div class="cabecalho-janela">
+            <h3>Documentação do Projeto</h3>
+            <button id="fechar-janela" class="btn-fechar">&times;</button>
+        </div>
+        <div class="conteudo-janela">
+            <h4>Requisitos Funcionais (RF)</h4>
+            <ul>
+                <li><strong>RF01 - Gerenciamento de Tarefas:</strong> O sistema deve permitir ao usuário adicionar novas tarefas à lista, marcá-las como concluídas ou excluí-las.</li>
+                <li><strong>RF02 - Alternância de Temas:</strong> O sistema deve permitir que o usuário mude a interface dinâmica entre o Modo Claro e o Modo Escuro.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
